@@ -1,0 +1,40 @@
+# Network Applications and Network Administration - Project
+### DNS Communication Monitoring Tool
+
+### Author: Vladimir Aleksandrov <xaleks03>
+
+### Description of the Program
+This project is a DNS communication monitoring tool designed to monitor DNS communication on a selected network interface or process DNS messages from an existing communication log in PCAP format. The tool provides valuable insights into DNS protocol messages and can track domain names appearing in DNS messages, translating them into IPv4/6 addresses.
+
+#### Features:
+- Monitores DNS communication on a selected network interface
+- Processes DNS messages from an existing communication log in PCAP format
+- Outputs relevant information about DNS messages
+- Tracks domain names appearing in DNS messages
+- Translates domain names into IPv4/6 addresses
+
+### Compilation of Executable Program from Source Files
+To compile the executable program from source files, simply run make in the project directory. To remove the compiled files, run make clean.
+
+### Usage
+Once compiled, the executable `dns-monitor` can be run as follows:
+
+`./dns-monitor (-i <interface> | -p <pcapfile>) [-v] [-d <domainsfile>] [-t <translationsfile>]`
+
+#### Parameters:
+- `-i <interface>`: Name of the interface on which the program will listen.
+- `-p <pcapfile>`: Name of the PCAP file to process.
+- `-v`: Verbose mode, outputs detailed DNS message information.
+- `-d <domainsfile>`: File name for saving observed domain names.
+- `-t <translationsfile>`: File name for saving domain name to IP address translations.
+
+### Example of Program Execution:
+- `./dns-monitor -i eth0`: Monitors live DNS traffic on interface `eth0`.
+- `./dns-monitor -p capture.pcap -v -d domains.txt -t translations.txt`: Processes DNS messages from `capture.pcap`, saving domain names to `domains.txt` and translations to `translations.txt`, with verbose output enabled.
+
+### Files Submitted:
+- `Makefile`
+- `README`
+- `manual.pdf`
+- `src/dns-monitor.c`
+- `src/dns-monitor.h`
